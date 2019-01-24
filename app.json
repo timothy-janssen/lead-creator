@@ -1,0 +1,6 @@
+{
+  "name": "server",
+  "description": "server",
+  "image": "heroku/nodejs",
+  "repository": "https://github.com/timothy-janssen/lead-creator"
+}
