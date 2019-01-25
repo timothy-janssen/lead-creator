@@ -20,7 +20,7 @@ app.post('/create-lead', function (req, res) {
 app.post('/errors', (req, res) => {
    console.error(req.body);
    res.sendStatus(200); 
-   card = [{type: 'text', content: 'Your lead has been created'}]''
+   card = [{type: 'text', content: 'Your lead has been created'}];
    return card.then(card => res.json({
       replies: card
     });
