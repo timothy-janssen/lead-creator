@@ -33,5 +33,6 @@ exports.call_api = function(token, cookie){
 	    }
 	};
 
-	request(post_options);
+	request(post_options)
+	.then(console.log('[POST] Request completed'));
 }
