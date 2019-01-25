@@ -17,7 +17,7 @@ var options = {
 
 exports.getToken = function(onComplete)  {
 	request(options)
-    .then( function(data) {console.log('Received token: ' + data.token)})
+    .then( function(data) {console.log('Received token: ' + data.token); return data;})
 	.then( function(data) {
 		onComplete(data.token, data.cookie);
 	});
