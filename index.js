@@ -23,7 +23,7 @@ app.post('/errors', (req, res) => {
    card = [{type: 'text', content: 'Your lead has been created'}];
    return card.then(card => res.json({
       replies: card
-    });
+    }));
 });
 
 app.get('/', function (req, res) {
