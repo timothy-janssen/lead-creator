@@ -15,9 +15,9 @@ app.post('/create-lead', function (req, res) {
 
 	csrf.getToken(api.call_api);
 	card = [{type: 'text', content: 'Your lead has been created'}];
-    return card.then(card => res.json({
+    return res.json({
       replies: card
-    }));
+    });
 })
 
 // Recast will send a post request to /errors to notify errors
