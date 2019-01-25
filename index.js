@@ -14,16 +14,17 @@ app.post('/create-lead', function (req, res) {
 	//const memory = req.body.conversation.memory;
 
 	csrf.getToken(api.call_api);
+	card = [{type: 'text', content: 'Your lead has been created'}];
+    return card.then(card => res.json({
+      replies: card
+    }));
 })
 
 // Recast will send a post request to /errors to notify errors
 app.post('/errors', (req, res) => {
    console.error(req.body);
    res.sendStatus(200); 
-   card = [{type: 'text', content: 'Your lead has been created'}];
-   return card.then(card => res.json({
-      replies: card
-    }));
+
 });
 
 app.get('/', function (req, res) {
