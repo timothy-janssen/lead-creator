@@ -11,6 +11,7 @@ app.post('/create-lead', function (req, res) {
 	console.log('[POST] create-lead');
 
 	//conversation memory
+	console.log(req);
 	//const memory = req.body.conversation.memory;
 
 	csrf.getToken(api.call_api);
