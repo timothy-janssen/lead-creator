@@ -1,8 +1,8 @@
 var request = require('request-promise');
 
-exports.call_api = function(token, cookie){
+exports.call_api = function(token, cookie, leadName){
 	var rand = ("0000" +  (Math.random() * 99999)).slice(-5);
-	var payload = { "Name": "API BOT TEST Lead TJ" + rand,
+	var payload = { "Name": leadName + " "  + rand,
 					"AccountPartyID": "1001562",
 					"OriginTypeCode": "003",
 					"PriorityCode": "3",

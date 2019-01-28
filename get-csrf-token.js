@@ -15,10 +15,10 @@ var options = {
     }
 };
 
-exports.getToken = function(onComplete)  {
+exports.getToken = function(onComplete, leadName)  {
 	request(options)
     .then( function(data) {console.log('Received token: ' + data.token); return data;})
 	.then( function(data) {
-		onComplete(data.token, data.cookie);
+		onComplete(data.token, data.cookie, leadName);
 	});
 }	

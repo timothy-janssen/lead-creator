@@ -12,11 +12,9 @@ app.post('/create-lead', function (req, res) {
 	console.log('[POST] create-lead');
 
 	//conversation memory
-	console.log(req);
-	console.log(res);
-	//const memory = req.body.conversation.memory;
+	const memory = req.body.conversation.memory;
 
-	csrf.getToken(api.call_api);
+	csrf.getToken(api.call_api, memory.lead-name);
 
 	card = [{type: 'text', content: 'Your lead has been created'}];
     return res.json({
