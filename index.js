@@ -32,8 +32,14 @@ app.post('/errors', (req, res) => {
 });
 
 app.post('/get-lead', function (req, res) {
+	console.log('[POST] get-lead');
+
+	//conversation memory
+	const memory = req.body.conversation.memory;
+
+	console.log(memory);
+	
 	csrf.getToken(api.call_api_get, {});
-	//csrf.getToken(api.call_api);
 })
 
 app.listen(config.PORT, () => console.log(`App started on port ${config.PORT}`)); 
