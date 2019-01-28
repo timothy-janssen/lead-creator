@@ -32,7 +32,7 @@ app.post('/errors', (req, res) => {
 });
 
 app.post('/get-lead', function (req, res) {
-	csrf.getToken(api.call_api_get);
+	csrf.getToken(api.call_api_get, {});
 	//csrf.getToken(api.call_api);
 })
 
