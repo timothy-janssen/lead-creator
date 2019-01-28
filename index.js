@@ -6,6 +6,7 @@ var csrf    = require('./get-csrf-token.js');
 var api     = require('./api.js');
 
 var app = express();
+app.use(bodyParser.json());
 
 app.post('/create-lead', function (req, res) {
 	console.log('[POST] create-lead');
