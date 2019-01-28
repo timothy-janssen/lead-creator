@@ -38,7 +38,7 @@ exports = {
 		.then(console.log('[POST] Request completed'));
 	},
 	
-	call_api_get : function(token, cookie, leadName){	
+	call_api_get : function(token, cookie){	
 		var get_options = {
 		    uri:    "https://my341721.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection",
 		    method:  "GET",
