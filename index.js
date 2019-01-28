@@ -38,7 +38,9 @@ app.post('/get-lead', function (req, res) {
 	const memory = req.body.conversation.memory;
 	const nlp = req.body.nlp;
 
-	console.log(nlp);
+	nlp.entities.forEach(function(entity){
+		console.log(entity);
+	})
 
 	csrf.getToken(api.call_api_get, {});
 })
