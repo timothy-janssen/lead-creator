@@ -16,7 +16,7 @@ app.post('/create-lead', function (req, res) {
 	var leadName = memory['lead-name'].value;
 	console.log("Creating lead: " + leadName);
 
-	csrf.getToken(api.call_api, toString(memory['lead-name'].value));
+	csrf.getToken(api.call_api, leadName);
 
 	card = [{type: 'text', content: 'Your lead has been created'}];
     return res.json({
