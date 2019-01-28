@@ -13,6 +13,8 @@ app.post('/create-lead', function (req, res) {
 
 	//conversation memory
 	const memory = req.body.conversation.memory;
+	var leadName = memory['lead-name'].value;
+	console.log("Creating lead: " + leadName);
 
 	csrf.getToken(api.call_api, toString(memory['lead-name'].value));
 
@@ -29,7 +31,7 @@ app.post('/errors', (req, res) => {
 
 });
 
-app.get('/', function (req, res) {
+app.post('/get-lead', function (req, res) {
 	//csrf.getToken(api.call_api);
 })
 
