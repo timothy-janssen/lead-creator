@@ -38,7 +38,7 @@ app.post('/get-lead', function (req, res) {
 	const memory = req.body.conversation.memory;
 	const nlp = req.body.nlp;
 
-	nlp.entities.forEach(function(entity){
+	nlp.entities.map(function(entity){
 		console.log(entity);
 	})
 
