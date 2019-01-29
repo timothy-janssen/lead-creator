@@ -7,7 +7,7 @@ exports.getSelOpts = function (nlp_obj) {
 				'search' 	: "", 
 				'orderby'	: "", 
 				'filter'	: "", 
-				'top'		: ""
+				'top'		: "&$top=6" // Let's default to the top 6 for now
 	};
 
 	var funcs = {
