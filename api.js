@@ -69,8 +69,6 @@ map_to_response = function (data){
         });
   	});
 
-  	console.log(response);
-
-	//return response;
+	return response;
 }
 
