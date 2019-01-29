@@ -14,17 +14,17 @@ exports.getSelOpts = function (nlp_obj) {
 
 	var funcs = {
 		sort: function(obj) { 
-			url.orderby = "&$orderby=LastChangeDateTime" + obj.order;
+			url['orderby'] = "&$orderby=LastChangeDateTime" + obj.order;
 		},
 		number: function(obj) { 
-			url.top = "&$top=" + obj.scalar;
+			url['top'] = "&$top=" + obj.scalar;
 			console.log(url.join(''));
 		},
 		organization: function(obj) { 
-			url.filter = add_to_filter(filter, "Company eq " + obj.raw);
+			url['filter'] = add_to_filter(url['filter'], "Company eq " + obj.raw);
 		},
 		datetime: function(obj) { 
-			url.filter = add_to_filter(filter, "CreationDateTime ge datetimeoffset'" + obj.iso + "'");
+			url['filter'] = add_to_filter(url['filter'], "CreationDateTime ge datetimeoffset'" + obj.iso + "'");
 		},
 		default: function(obj) {
 			//nada
