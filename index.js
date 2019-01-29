@@ -50,22 +50,21 @@ app.post('/get-lead', function (req, res) {
 	csrf.getToken()
 	.then( function(data){
 		console.log('Received token: ' + data.token);
-		var api_data = api.call_api_get(data.token, data.cookie);
-
-		console.log(api_data);
-
-		res.json({
-    	  replies: [
-   			  {
-   			    type: 'text',
-   			    content: "Here's what I found for you!",
-   			  },{
-   			  	type: 'list',
-   			  	content: api_data,
-    			buttons: []
-   			  }
-   			],
-    	});
+		api.call_api_get(data.token, data.cookie)
+		.then( function(api_data){
+			res.json({
+    		  replies: [
+   				  {
+   				    type: 'text',
+   				    content: "Here's what I found for you!",
+   				  },{
+   				  	type: 'list',
+   				  	content: api_data,
+    				buttons: []
+   				  }
+   				],
+    		});
+		});
 	})
 	.catch( function(err){
 		console.log(err);
