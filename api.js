@@ -67,12 +67,10 @@ map_to_response = function (data){
   	};	
 
   	data.forEach( function(lead){
-  		var list_item = {
+  		response.content.elements.push({
         	"title": lead.Name,
         	"subtitle": lead.Company
-        };
-
-        response.content.elements.push(list_item);
+        });
   	});
 
   	console.log(response);
