@@ -34,10 +34,9 @@ exports.getSelOpts = function (nlp_obj) {
 	});
 
 	var ret = "";
-
-	console.log(url);
-	url.forEach( function(key, value) { 
-		ret += value.toString();
+	
+	Object.keys(url).forEach( function(key) { 
+		ret += url[key];
 	});
 
 	return ret;
