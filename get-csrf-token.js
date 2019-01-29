@@ -16,15 +16,9 @@ var options = {
 };
 
 exports.getToken = function()  {
-
     return new Promise((resolve, reject) => {
         request(options)
         .then( data => { resolve(data); } )
         .catch( data => { reject(data); } );
-    });/*
-	return 
-    .then( function(data) {console.log('Received token: ' + data.token); return data;})
-	.then( function(data) {
-		return onComplete(data.token, data.cookie, leadName);
-	});*/
+    });
 }	
