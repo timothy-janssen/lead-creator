@@ -33,7 +33,7 @@ exports.call_api_post = function(token, cookie, leadName){
 	    }
 	};
 
-	request(post_options)
+	return request(post_options)
 	.then(console.log('[POST] Request completed'));
 };
 	

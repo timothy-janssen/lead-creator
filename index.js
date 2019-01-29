@@ -17,25 +17,19 @@ app.post('/create-lead', function (req, res) {
 	console.log("Creating lead: " + leadName);
 
 	csrf.getToken()
-	.then( function(data){
-		console.log('Received token: ' + data.token);
-		var api_data = api.call_api_post(data.token, data.cookie, leadName);
+	.then( function(token_data){
+		console.log('Received token: ' + token_data.token);
+		api.call_api_post(token_data.token, token_data.cookie, leadName)
+		.then(function(api_data){
+			card = [{type: 'text', content: 'Your lead has been created'}];
+    		res.json({
+    		  replies: card
+    		});
+		});
 	})
 	.catch( function(err){
 		console.log(err);
 	});
-
-	card = [{type: 'text', content: 'Your lead has been created'}];
-    res.json({
-      replies: card
-    });
-})
-
-// Recast will send a post request to /errors to notify errors
-app.post('/errors', (req, res) => {
-   console.error(req.body);
-   res.sendStatus(200); 
-
 });
 
 app.post('/get-lead', function (req, res) {
@@ -48,9 +42,9 @@ app.post('/get-lead', function (req, res) {
 	console.log(nlp.entities);
 
 	csrf.getToken()
-	.then( function(data){
-		console.log('Received token: ' + data.token);
-		api.call_api_get(data.token, data.cookie)
+	.then( function(token_data){
+		console.log('Received token: ' + token_data.token);
+		api.call_api_get(token_data.token, token_data.cookie)
 		.then( function(api_data){
 			res.json({
     		  replies: [
@@ -69,6 +63,13 @@ app.post('/get-lead', function (req, res) {
 	.catch( function(err){
 		console.log(err);
 	}); 
-})
+});
+
+// Recast will send a post request to /errors to notify errors
+app.post('/errors', (req, res) => {
+   console.error(req.body);
+   res.sendStatus(200); 
+
+});
 
 app.listen(config.PORT, () => console.log(`App started on port ${config.PORT}`)); 
