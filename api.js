@@ -52,7 +52,7 @@ exports.call_api_get = function(token, cookie){
 
 	return request(get_options)
 	.then(function (data){
-		console.log('[GET] Request completed\n' + data);
+		console.log('[GET] Request completed\n' + data[0]);
 		return map_to_response(data); 
 	})
 	//.then();
