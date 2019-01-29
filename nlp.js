@@ -30,7 +30,7 @@ exports.getSelOpts = function (nlp_obj) {
 	return format + search + orderby + filter + top;
 };
 
-add_to_filter(filter, str){
+function add_to_filter(filter, str){
 	if(filter === "") {
 		filter = "&$filter=" + str;
 	} else {
