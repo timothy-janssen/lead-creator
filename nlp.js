@@ -7,30 +7,26 @@ exports.getSelOpts = function (nlp_obj) {
 	format = "&$format=json";
 
 	var funcs = {
-		sort: function(opts, obj) { 
-			opts.orderby = "&$orderby=LastChangeDateTime" + obj.order;
-			return opts;
+		sort: function(obj) { 
+			url.orderby = "&$orderby=LastChangeDateTime" + obj.order;
 		},
-		number: function(opts, obj) { 
-			opts.top = "&$top=" + nlp_obj[key].scalar;
-			return opts;
+		number: function(obj) { 
+			url.top = "&$top=" + obj.scalar;
 		},
-		organization: function(opts, obj) { 
-			opts.filter = add_to_filter(filter, "Company eq " + nlp_obj[key].raw);
-			return opts;
+		organization: function(obj) { 
+			url.filter = add_to_filter(filter, "Company eq " + obj.raw);
 		},
-		datetime: function(opts, obj) { 
-			opts.filter = add_to_filter(filter, "CreationDateTime ge datetimeoffset'" + nlp_obj[key].iso + "'");
-			return opts;
+		datetime: function(obj) { 
+			url.filter = add_to_filter(filter, "CreationDateTime ge datetimeoffset'" + obj.iso + "'");
 		},
-		default: function(opts, obj) {
-			return opts;
+		default: function(obj) {
+			//nada
 		}
 	}
 
 	Object.keys(nlp_obj).forEach( function(key) {
 		var obj = nlp_obj[key];
-		(url, obj) => funcs[key];
+		(obj) => funcs[key];
 	});
 
 	console.log(url);
