@@ -40,7 +40,15 @@ app.post('/get-lead', function (req, res) {
 
 	console.log(nlp.entities);
 
-	csrf.getToken(api.call_api_get, {});
+	return csrf.getToken(api.call_api_get, {})
+	.then( function(data){
+		return [
+   		  {
+   		    type: 'text',
+   		    content: "Here's what I found for you!",
+   		  }
+   		];
+	}); 
 })
 
 app.listen(config.PORT, () => console.log(`App started on port ${config.PORT}`)); 
