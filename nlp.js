@@ -12,19 +12,19 @@ exports.getSelOpts = function (nlp_obj) {
 	format = "&$format=json";
 
 	var funcs = {
-		sort: function(obj) { 
+		sort: function(obj, url) { 
 			url.orderby = "&$orderby=LastChangeDateTime" + obj.order;
 		},
-		number: function(obj) { 
+		number: function(obj, url) { 
 			url.top = "&$top=" + obj.scalar;
 		},
-		organization: function(obj) { 
+		organization: function(obj, url) { 
 			url.filter = add_to_filter(filter, "Company eq " + obj.raw);
 		},
-		datetime: function(obj) { 
+		datetime: function(obj, url) { 
 			url.filter = add_to_filter(filter, "CreationDateTime ge datetimeoffset'" + obj.iso + "'");
 		},
-		default: function(obj) {
+		default: function(obj, url) {
 			//nada
 		}
 	}
@@ -33,7 +33,7 @@ exports.getSelOpts = function (nlp_obj) {
 
 	Object.keys(nlp_obj).forEach( function(key) {
 		var func = funcs[key] || funcs['default'];
-		func(nlp_obj[key]);
+		func(nlp_obj[key], url);
 		console.log(key + " : " + url.join(''))
 	});
 
