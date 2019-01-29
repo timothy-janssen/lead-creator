@@ -76,7 +76,8 @@ map_to_response = function (data){
   	});
 
   	response.content.elements.push(...data);
+  	console.log(response);
 
-	return response;
+	//return response;
 }
 
