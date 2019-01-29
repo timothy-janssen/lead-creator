@@ -1,16 +1,14 @@
 
 exports.getSelOpts = function (nlp_obj) {
 
-	var search = "";
-	var orderby = "";
-	var format = "";
-	var filter = "";
-	var top = "";
-
 	format = "&$format=json";
 
-	var url = [search, orderby, format, filter, top];	
-	console.log(url.join(''));
+	var url = [ 'search' 	: "", 
+				'orderby'	: "", 
+				'format'	: format , 
+				'filter'	: "", 
+				'top'		: ""
+	];
 
 	var funcs = {
 		sort: function(obj) { 
@@ -29,10 +27,8 @@ exports.getSelOpts = function (nlp_obj) {
 		default: function(obj) {
 			//nada
 		}
-	}
-
-	console.log(nlp_obj);
-
+	};
+	
 	Object.keys(nlp_obj).forEach( function(key) {
 		var func = funcs[key] || funcs['default'];
 		func(nlp_obj[key]);
