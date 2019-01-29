@@ -50,10 +50,10 @@ exports.call_api_get = function(token, cookie){
 	    }
 	};
 
-	request(get_options)
+	return request(get_options)
 	.then(function (data){
 		return data;
 	})
-	.then(console.log('[GET] Request completed'));
+	//.then(console.log('[GET] Request completed'));
 };
 

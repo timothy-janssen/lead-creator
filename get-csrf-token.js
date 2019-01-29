@@ -16,10 +16,10 @@ var options = {
 };
 
 exports.getToken = function(onComplete, leadName)  {
-	request(options)
+	return request(options)
     .then( function(data) {console.log('Received token: ' + data.token); return data;})
 	.then( function(data) {
         console.log("getToken: " + leadName);
-		onComplete(data.token, data.cookie, leadName);
+		return onComplete(data.token, data.cookie, leadName);
 	});
 }	
