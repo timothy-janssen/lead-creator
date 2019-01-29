@@ -2,32 +2,37 @@
 exports.getSelOpts = function (nlp_obj) {
 
 	var search, orderby, format, filter, top = "";
+	url = { search, orderby, format, filter, top };
 
 	format = "&$format=json";
 
-	Object.keys(nlp_obj).forEach( function(key) {
-		switch(key) {
-			case sort:
-				orderby = "&$orderby=LastChangeDateTime" + nlp_obj[key].order;
-				break;
-			case number:
-				top = "&$top=" + nlp_obj[key].scalar;
-				break;
-			case organization:
-				filter = add_to_filter(filter, "Company eq " + nlp_obj[key].raw);
-				break;
-			case location:
-
-				break;
-			case datetime:
-				filter = add_to_filter(filter, "CreationDateTime ge datetimeoffset'" + nlp_obj[key].iso + "'");
-				break;
-			default:
-			// nada
+	var funcs = {
+		sort: function(opts, obj) { 
+			opts.orderby = "&$orderby=LastChangeDateTime" + obj.order;
+			return opts;
+		},
+		number: function(opts, obj) { 
+			opts.top = "&$top=" + nlp_obj[key].scalar;
+			return opts;
+		},
+		organization: function(opts, obj) { 
+			opts.filter = add_to_filter(filter, "Company eq " + nlp_obj[key].raw);
+			return opts;
+		},
+		datetime: function(opts, obj) { 
+			opts.filter = add_to_filter(filter, "CreationDateTime ge datetimeoffset'" + nlp_obj[key].iso + "'");
+			return opts;
+		},
+		default: function(opts, obj) {
+			return opts;
 		}
+	}
+
+	Object.keys(nlp_obj).forEach( function(key) {
+		url = funcs[key](url, nlp_obj[key]);
 	})
 
-	return format + search + orderby + filter + top;
+	return ...url;
 };
 
 function add_to_filter(filter, str){
