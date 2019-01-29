@@ -66,16 +66,15 @@ map_to_response = function (data){
     	}
   	};	
 
-  	data.map(function(lead){
+  	data.forEach( function(lead){
   		var list_item = {
         	"title": lead.Name,
         	"subtitle": lead.Company
         };
 
-        lead = list_item;
+        response.content.elements.push(list_item);
   	});
 
-  	response.content.elements.push(...data);
   	console.log(response);
 
 	//return response;
