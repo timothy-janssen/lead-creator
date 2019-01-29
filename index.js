@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const config = require('./config.js');
 var csrf    = require('./get-csrf-token.js');
 var api     = require('./api.js');
+var decoder = require('./nlp.js')
 
 var app = express();
 app.use(bodyParser.json());
@@ -44,8 +45,11 @@ app.post('/get-lead', function (req, res) {
 	csrf.getToken()
 	.then( function(token_data){
 		console.log('Received token: ' + token_data.token);
-		api.call_api_get(token_data.token, token_data.cookie)
-		.then( function(api_data){
+
+		var sel_opts = decoder.getSelOpts(nlp);
+
+		api.call_api_get(token_data.token, token_data.cookie, sel_opts)
+		.then(function(api_data){
 			res.json({
     		  replies: [
    				  {

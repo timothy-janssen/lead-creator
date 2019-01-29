@@ -37,9 +37,10 @@ exports.call_api_post = function(token, cookie, leadName){
 	.then(console.log('[POST] Request completed'));
 };
 	
-exports.call_api_get = function(token, cookie){	
+exports.call_api_get = function(token, cookie, sel_opts){
+
 	var get_options = {
-	    uri:    "https://my341721.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection?$search=%27API%27&$orderby=LastChangeDateTime%20desc&$format=json",
+	    uri:    "https://my341721.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection?" + sel_opts,
 	    method:  "GET",
 	    json:    true,
 	    headers: {      
