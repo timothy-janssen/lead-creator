@@ -18,7 +18,7 @@ exports.getSelOpts = function (nlp_obj) {
 		number: function(obj) { 
 			url.top = "&$top=" + obj.scalar;
 		},
-		organization: function(obj { 
+		organization: function(obj) { 
 			url.filter = add_to_filter(filter, "Company eq " + obj.raw);
 		},
 		datetime: function(obj) { 
