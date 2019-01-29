@@ -42,12 +42,14 @@ app.post('/get-lead', function (req, res) {
 
 	return csrf.getToken(api.call_api_get, {})
 	.then( function(data){
-		return [
-   		  {
-   		    type: 'text',
-   		    content: "Here's what I found for you!",
-   		  }
-   		];
+		res.json({
+    	  replies: [
+   			  {
+   			    type: 'text',
+   			    content: "Here's what I found for you!",
+   			  }
+   			],
+    	});
 	}); 
 })
 
