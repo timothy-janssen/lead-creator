@@ -20,7 +20,7 @@ app.post('/create-lead', function (req, res) {
 	.then( function(data){
 		var api_data = api.call_api_post(data.token, data.cookie, leadName);
 	})
-	.catch( fucntion(err){
+	.catch( function(err){
 		console.log(err);
 	});
 
@@ -63,7 +63,7 @@ app.post('/get-lead', function (req, res) {
    			],
     	});
 	})
-	.catch( fucntion(err){
+	.catch( function(err){
 		console.log(err);
 	}); 
 })
