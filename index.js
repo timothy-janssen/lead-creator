@@ -49,7 +49,8 @@ app.post('/get-lead', function (req, res) {
    			    content: "Here's what I found for you!",
    			  },{
    			  	type: 'list',
-   			  	content: data
+   			  	content: data,
+    			buttons: []
    			  }
    			],
     	});

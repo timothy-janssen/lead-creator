@@ -59,17 +59,13 @@ exports.call_api_get = function(token, cookie){
 };
 
 map_to_response = function (data){
-	var response = {
-    	"type": "list",
-    	"content": {
-      		"elements": []
-    	}
-  	};	
+	var response = { "elements": [] };	
 
   	data.forEach( function(lead){
-  		response.content.elements.push({
+  		response.elements.push({
         	"title": lead.Name,
-        	"subtitle": lead.Company
+        	"subtitle": lead.Company,
+    		"buttons": []
         });
   	});
 
