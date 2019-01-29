@@ -34,6 +34,7 @@ exports.getSelOpts = function (nlp_obj) {
 	Object.keys(nlp_obj).forEach( function(key) {
 		var func = funcs[key] || funcs['default'];
 		func(nlp_obj[key]);
+		console.log(key + " : " + url.join(''))
 	});
 
 	return url.join('');
