@@ -39,7 +39,7 @@ exports.call_api_post = function(token, cookie, leadName){
 	
 exports.call_api_get = function(token, cookie){	
 	var get_options = {
-	    uri:    "https://my341721.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection?$top=10&search='Spikes 44 uni'",
+	    uri:    "https://my341721.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection$search=%27API%27&$orderby=LastChangeDateTime%20desc",
 	    method:  "GET",
 	    json:    true,
 	    headers: {      
