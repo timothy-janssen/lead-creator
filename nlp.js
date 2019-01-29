@@ -3,12 +3,12 @@ exports.getSelOpts = function (nlp_obj) {
 
 	format = "&$format=json";
 
-	var url = [ 'search' 	: "", 
+	var url = { 'format'	: format , 
+				'search' 	: "", 
 				'orderby'	: "", 
-				'format'	: format , 
 				'filter'	: "", 
 				'top'		: ""
-	];
+	};
 
 	var funcs = {
 		sort: function(obj) { 
@@ -28,14 +28,20 @@ exports.getSelOpts = function (nlp_obj) {
 			//nada
 		}
 	};
-	
+
 	Object.keys(nlp_obj).forEach( function(key) {
 		var func = funcs[key] || funcs['default'];
 		func(nlp_obj[key]);
 		console.log(key + " : " + url.join(''))
 	});
 
-	return url.join('');
+	var ret = "";
+
+	url.forEach( function(key, value) { 
+		ret += value.toString();
+	});
+
+	return ret;
 };
 
 function add_to_filter(filter, str){
