@@ -18,6 +18,7 @@ app.post('/create-lead', function (req, res) {
 
 	csrf.getToken()
 	.then( function(data){
+		console.log('Received token: ' + data.token);
 		var api_data = api.call_api_post(data.token, data.cookie, leadName);
 	})
 	.catch( function(err){
@@ -48,7 +49,10 @@ app.post('/get-lead', function (req, res) {
 
 	csrf.getToken()
 	.then( function(data){
+		console.log('Received token: ' + data.token);
 		var api_data = api.call_api_get(data.token, data.cookie);
+
+		console.log(api_data);
 
 		res.json({
     	  replies: [
