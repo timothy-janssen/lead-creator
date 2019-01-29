@@ -32,7 +32,7 @@ exports.getSelOpts = function (nlp_obj) {
 		url = funcs[key](url, nlp_obj[key]);
 	})
 
-	return ...url;
+	return url.join();
 };
 
 function add_to_filter(filter, str){
