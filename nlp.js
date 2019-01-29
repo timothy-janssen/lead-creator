@@ -36,7 +36,7 @@ exports.getSelOpts = function (nlp_obj) {
 	Object.keys(nlp_obj).forEach( function(key) {
 		var obj = nlp_obj[key];
 		func = funcs[key];
-		console.log(func);
+		console.log(key + " : " + obj);
 	});
 
 	
