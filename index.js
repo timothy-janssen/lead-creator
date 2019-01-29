@@ -16,10 +16,16 @@ app.post('/create-lead', function (req, res) {
 	var leadName = memory['lead-name'].value;
 	console.log("Creating lead: " + leadName);
 
-	csrf.getToken(api.call_api_post, leadName);
+	csrf.getToken()
+	.then( function(data){
+		var api_data = api.call_api_post(data.token, data.cookie, leadName);
+	})
+	.catch( fucntion(err){
+		console.log(err);
+	});
 
 	card = [{type: 'text', content: 'Your lead has been created'}];
-    return res.json({
+    res.json({
       replies: card
     });
 })
@@ -42,10 +48,8 @@ app.post('/get-lead', function (req, res) {
 
 	csrf.getToken()
 	.then( function(data){
-		console.log(data);
-		return data;
-	})
-	.then( function(data){
+		var api_data = api.call_api_get(data.token, data.cookie);
+
 		res.json({
     	  replies: [
    			  {
@@ -53,11 +57,14 @@ app.post('/get-lead', function (req, res) {
    			    content: "Here's what I found for you!",
    			  },{
    			  	type: 'list',
-   			  	content: data,
+   			  	content: api_data,
     			buttons: []
    			  }
    			],
     	});
+	})
+	.catch( fucntion(err){
+		console.log(err);
 	}); 
 })
 
