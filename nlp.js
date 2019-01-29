@@ -34,12 +34,12 @@ exports.getSelOpts = function (nlp_obj) {
 	});
 
 	var ret = "";
-	
+
 	Object.keys(url).forEach( function(key) { 
 		ret += url[key];
 	});
 
-	return ret;
+	return ret.replace( /^&/,''); //remove leading &
 };
 
 function add_to_filter(filter, str){
