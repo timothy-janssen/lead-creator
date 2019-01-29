@@ -7,9 +7,10 @@ exports.getSelOpts = function (nlp_obj) {
 	var filter = "";
 	var top = "";
 
-	var url = [search, orderby, format, filter, top];
-
 	format = "&$format=json";
+
+	var url = [search, orderby, format, filter, top];	
+	console.log(url.join(''));
 
 	var funcs = {
 		sort: function(obj) { 
@@ -17,6 +18,7 @@ exports.getSelOpts = function (nlp_obj) {
 		},
 		number: function(obj) { 
 			url.top = "&$top=" + obj.scalar;
+			console.log(url.join(''));
 		},
 		organization: function(obj) { 
 			url.filter = add_to_filter(filter, "Company eq " + obj.raw);
