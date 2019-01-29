@@ -40,7 +40,7 @@ app.post('/get-lead', function (req, res) {
 
 	console.log(nlp.entities);
 
-	csrf.getToken(, {})
+	csrf.getToken()
 	.then( function(data){
 		console.log(data);
 		return data;
