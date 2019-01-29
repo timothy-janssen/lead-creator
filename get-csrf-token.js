@@ -19,7 +19,6 @@ exports.getToken = function(onComplete, leadName)  {
 	return request(options)
     .then( function(data) {console.log('Received token: ' + data.token); return data;})
 	.then( function(data) {
-        console.log("getToken: " + leadName);
 		return onComplete(data.token, data.cookie, leadName);
 	});
 }	

@@ -53,8 +53,7 @@ exports.call_api_get = function(token, cookie){
 	return request(get_options)
 	.then(function (data){
 		console.log('[GET] Request completed');
-		console.log(JSON.stringify(data));
-		return map_to_response(data); 
+		return map_to_response(data.d.results); 
 	})
 	//.then();
 };
@@ -69,9 +68,8 @@ map_to_response = function (data){
 
   	data.map(function(lead){
   		var list_item = {
-        	"title": "ELEM_1_TITLE",
-        	"imageUrl": "IMAGE_URL",
-        	"subtitle": "ELEM_1_SUBTITLE"
+        	"title": lead.Name,
+        	"subtitle": lead.Company
         };
 
         lead = list_item;
