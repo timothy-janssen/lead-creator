@@ -16,7 +16,6 @@ exports.getSelOpts = function (nlp_obj) {
 		},
 		number: function(obj) { 
 			url['top'] = "&$top=" + obj.scalar;
-			console.log(url.join(''));
 		},
 		organization: function(obj) { 
 			url['filter'] = add_to_filter(url['filter'], "Company eq " + obj.raw);
@@ -32,11 +31,11 @@ exports.getSelOpts = function (nlp_obj) {
 	Object.keys(nlp_obj).forEach( function(key) {
 		var func = funcs[key] || funcs['default'];
 		func(nlp_obj[key]);
-		console.log(key + " : " + url.join(''))
 	});
 
 	var ret = "";
 
+	console.log(url);
 	url.forEach( function(key, value) { 
 		ret += value.toString();
 	});
