@@ -29,7 +29,8 @@ exports.getSelOpts = function (nlp_obj) {
 	}
 
 	Object.keys(nlp_obj).forEach( function(key) {
-		url = (url, nlp_obj[key]) => funcs[key];
+		var obj = nlp_obj[key];
+		url = (url, obj) => funcs[key];
 	})
 
 	return url.join();
