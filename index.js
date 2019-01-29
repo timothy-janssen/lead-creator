@@ -39,14 +39,13 @@ app.post('/get-lead', function (req, res) {
 	//conversation memory
 	const memory = req.body.conversation.memory;
 	const nlp = req.body.nlp;
-
-	console.log(nlp.entities);
+	const entities = nlp.entities;
 
 	csrf.getToken()
 	.then( function(token_data){
 		console.log('Received token: ' + token_data.token);
 
-		var sel_opts = decoder.getSelOpts(nlp);
+		var sel_opts = decoder.getSelOpts(entities);
 
 		api.call_api_get(token_data.token, token_data.cookie, sel_opts)
 		.then(function(api_data){
