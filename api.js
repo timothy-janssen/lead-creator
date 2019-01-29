@@ -59,9 +59,24 @@ exports.call_api_get = function(token, cookie){
 };
 
 map_to_response = function (data){
-	var response = {};
+	var response = {
+    	"type": "list",
+    	"content": {
+      		"elements": []
+    	}
+  	};	
 
-	// magic
+  	data.map(function(lead){
+  		var list_item = {
+        	"title": "ELEM_1_TITLE",
+        	"imageUrl": "IMAGE_URL",
+        	"subtitle": "ELEM_1_SUBTITLE"
+        };
+
+        lead = list_item;
+  	});
+
+  	response.content.elements.push(...data);
 
 	return response;
 }
