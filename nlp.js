@@ -12,7 +12,14 @@ exports.getSelOpts = function (nlp_obj) {
 
 	var funcs = {
 		sort: function(obj) { 
-			url['orderby'] = "&$orderby=LastChangeDateTime" + obj.order;
+			url['orderby'] = "&$orderby=LastChangeDateTime " + obj.order;
+		},
+		ordinal: function(obj) { 
+			if(obj.rank > 0) {
+				url['orderby'] = "&$orderby=LastChangeDateTime asc"
+			} else if(obj.rank < 0){
+				url['orderby'] = "&$orderby=LastChangeDateTime desc";
+			}
 		},
 		number: function(obj) { 
 			url['top'] = "&$top=" + obj.scalar;
