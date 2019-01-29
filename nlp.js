@@ -32,7 +32,7 @@ exports.getSelOpts = function (nlp_obj) {
 
 add_to_filter(filter, str){
 	if(filter === "") {
-		filter = "$filter=" + str;
+		filter = "&$filter=" + str;
 	} else {
 		filter = filter + " and" + str;
 	}
