@@ -28,7 +28,8 @@ exports.getSelOpts = function (nlp_obj) {
 			url['filter'] = add_to_filter(url['filter'], "Company eq " + obj.raw);
 		},
 		datetime: function(obj) { 
-			url['filter'] = add_to_filter(url['filter'], "CreationDateTime ge datetimeoffset'" + obj.iso + "'");
+			date = new Date(obj.iso);
+			url['filter'] = add_to_filter(url['filter'], "CreationDateTime ge datetimeoffset'" + date.toISOString() + "'");
 		},
 		default: function(obj) {
 			//nada
@@ -57,3 +58,11 @@ function add_to_filter(filter, str){
 	}
 	return filter;	
 }
+
+
+CreationDateTime%20gt%20datetimeoffset%27
+2017-08-20T08:18:32.5957340Z     %27
+
+2015-04-01T00:00:00Z
+
+2019-01-28T22:42:26+00:00
