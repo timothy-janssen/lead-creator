@@ -68,6 +68,14 @@ app.post('/get-lead', function (req, res) {
 	}); 
 });
 
+app.post('/save-lead-name', function (req, res) {
+	console.log('[POST] save-lead-name');
+
+	const memory = req.body.conversation;
+
+	console.log(memory);
+});
+
 // Recast will send a post request to /errors to notify errors
 app.post('/errors', (req, res) => {
    console.error(req.body);

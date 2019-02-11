@@ -1,9 +1,7 @@
 
 exports.getSelOpts = function (nlp_obj) {
 
-	format = "&$format=json";
-
-	var url = { 'format'	: format , 
+	var url = { 'format'	: "&$format=json" , 
 				'search' 	: "", 
 				'orderby'	: "", 
 				'filter'	: "", 
