@@ -65,9 +65,11 @@ map_to_response = function (data){
 	var response = { "elements": [] };	
 
   	data.forEach( function(lead){
+  		var value = '' + lead.ExpectedRevenueCurrencyCodeText + lead.ExpectedRevenueAmount;
+  		var exp_close =  new Date(lead.EndDate);
   		response.elements.push({
         	"title": lead.Name,
-        	"subtitle": lead.Company,
+        	"subtitle":  value + ' ' + exp_close,
     		"buttons": []
         });
   	});
