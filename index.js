@@ -20,13 +20,13 @@ app.post('/create-lead', function (req, res) {
 		"lead_date": memory['lead-date']
 
 	}
-	
-	console.log("Creating lead: " + leadName);
+
+	console.log("Creating lead: " + lead.lead_name);
 
 	csrf.getToken()
 	.then( function(token_data){
 		console.log('Received token: ' + token_data.token);
-		api.call_api_post(token_data.token, token_data.cookie, leadName)
+		api.call_api_post(token_data.token, token_data.cookie, lead)
 		.then(function(api_data){
 			card = [{type: 'text', content: 'Your lead has been created'}];
     		res.json({
