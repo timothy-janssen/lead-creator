@@ -1,14 +1,17 @@
 var request = require('request-promise');
 
-exports.call_api_post = function(token, cookie, leadName){
-	var rand = ("0000" +  (Math.random() * 99999)).slice(-5);
-	var payload = { "Name": leadName + " "  + rand,
+exports.call_api_post = function(token, cookie, lead){
+	console.log(lead);
+	var payload = { "Name": lead.lead_name.value,
 					"AccountPartyID": "1001562",
 					"OriginTypeCode": "003",
 					"PriorityCode": "3",
 					"UserStatusCode":"02",
 					"DistributionChannelCode": "01",
 					"DivisionCode": "00",
+					"EndDate": lead.lead_date.iso.value,
+					"ExpectedRevenueAmount": lead.lead_amount.amount.value,
+					"ExpectedRevenueCurrencyCodeText": lead.lead_amount.currency.value,
 					"LeadItem":[{
 						 	"ProductID":"10000954",
 						    "Quantity":"2",
@@ -19,7 +22,7 @@ exports.call_api_post = function(token, cookie, leadName){
 						    "unitCode": "EA"
 						}
 					]};
-
+	console.log(payload);
 	var post_options = {
 	    uri:    "https://my341721.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection",
 	    method:  "POST",

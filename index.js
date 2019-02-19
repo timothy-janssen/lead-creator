@@ -14,7 +14,13 @@ app.post('/create-lead', function (req, res) {
 
 	//conversation memory
 	const memory = req.body.conversation.memory;
-	var leadName = memory['lead-name'].value;
+	var lead = {
+		"lead_name": memory['lead-name'],
+		"lead_amount": memory['lead-amount'],
+		"lead_date": memory['lead-date']
+
+	}
+	
 	console.log("Creating lead: " + leadName);
 
 	csrf.getToken()
@@ -74,7 +80,7 @@ app.post('/save-lead-name', function (req, res) {
 	const memory = req.body.conversation;
 
 	console.log(memory);
-	
+
 
 });
 
