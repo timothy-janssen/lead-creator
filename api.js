@@ -2,16 +2,16 @@ var request = require('request-promise');
 
 exports.call_api_post = function(token, cookie, lead){
 	console.log(lead);
-	var payload = { "Name": lead.lead_name.value,
+	var payload = { "Name": lead.lead_name,
 					"AccountPartyID": "1001562",
 					"OriginTypeCode": "003",
 					"PriorityCode": "3",
 					"UserStatusCode":"02",
 					"DistributionChannelCode": "01",
 					"DivisionCode": "00",
-					"EndDate": lead.lead_date.iso.value,
-					"ExpectedRevenueAmount": lead.lead_amount.amount.value,
-					"ExpectedRevenueCurrencyCodeText": lead.lead_amount.currency.value,
+					"EndDate": lead.lead_date.iso,
+					"ExpectedRevenueAmount": lead.lead_amount.amount,
+					"ExpectedRevenueCurrencyCodeText": lead.lead_amount.currency,
 					"LeadItem":[{
 						 	"ProductID":"10000954",
 						    "Quantity":"2",
