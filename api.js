@@ -9,7 +9,7 @@ exports.call_api_post = function(token, cookie, lead){
 					"UserStatusCode":"02",
 					"DistributionChannelCode": "01",
 					"DivisionCode": "00",
-					"EndDate": lead.lead_date.iso,
+					"EndDate": new Date(lead.lead_date.iso),
 					"ExpectedRevenueAmount": lead.lead_amount.amount,
 					"ExpectedRevenueCurrencyCodeText": lead.lead_amount.currency,
 					"LeadItem":[{
