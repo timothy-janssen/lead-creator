@@ -1,7 +1,9 @@
 var request = require('request-promise');
 
 exports.call_api_post = function(token, cookie, lead){
-	console.log(lead);
+
+	var date = new Date(lead.lead_date.iso).toISOString();
+	
 	var payload = { "Name": lead.lead_name,
 					"AccountPartyID": "1001562",
 					"OriginTypeCode": "003",
@@ -9,7 +11,7 @@ exports.call_api_post = function(token, cookie, lead){
 					"UserStatusCode":"02",
 					"DistributionChannelCode": "01",
 					"DivisionCode": "00",
-					"EndDate": new Date(lead.lead_date.iso),
+					"EndDate": date.split('.')[0],
 					"ExpectedRevenueAmount": lead.lead_amount.amount,
 					"ExpectedRevenueCurrencyCodeText": lead.lead_amount.currency,
 					"LeadItem":[{
