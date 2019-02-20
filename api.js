@@ -4,7 +4,7 @@ exports.call_api_post = function(token, cookie, lead){
 
 	var date = new Date(lead.lead_date.iso).toISOString();
 
-	var amt_txt = '"' + lead.lead_amount.amount + '"';
+	var amt_txt = lead.lead_amount.amount + "";
 
 	var payload = { "Name": lead.lead_name,
 					"AccountPartyID": "1001562",
