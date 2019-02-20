@@ -10,7 +10,7 @@ exports.getSelOpts = function (nlp_obj) {
 				'top'		: "&$top=6" // Let's default to the top 6 for now
 	};
 
-	var sign = 'eq';
+	var sign = '';
 
 	var funcs = {
 		sort: function(obj) { 
@@ -31,7 +31,7 @@ exports.getSelOpts = function (nlp_obj) {
 		},
 		datetime: function(obj) { 
 			date = new Date(obj.iso);
-			url['filter'] = add_to_filter(url['filter'], "EndDate " + sign + " (datetimeoffset'" + date.toISOString().split('.')[0] + "')");
+			url['filter'] = add_to_filter(url['filter'], "EndDate " + sign + " (datetimeoffset'" + date.toISOString().split('.')[0] + "Z')");
 		},
 		money: function(obj) {
 			url['filter'] = add_to_filter(url['filter'], "ExpectedRevenueAmount " + sign + " " + obj.amount);
@@ -41,7 +41,7 @@ exports.getSelOpts = function (nlp_obj) {
 		}
 	};
 
-	sign = nlp_obj['filter'].sign || sign;
+	sign = nlp_obj['filter'].sign || 'eq';
 
 	Object.keys(nlp_obj).forEach( function(key) {
 		var func = funcs[key] || funcs['default'];
