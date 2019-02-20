@@ -8,6 +8,8 @@ exports.getSelOpts = function (nlp_obj) {
 				'top'		: "&$top=6" // Let's default to the top 6 for now
 	};
 
+	var sign = 'eq';
+
 	var funcs = {
 		sort: function(obj) { 
 			url['orderby'] = "&$orderby=LastChangeDateTime " + obj.order;
@@ -29,10 +31,15 @@ exports.getSelOpts = function (nlp_obj) {
 			date = new Date(obj.iso);
 			url['filter'] = add_to_filter(url['filter'], "CreationDateTime ge datetimeoffset'" + date.toISOString() + "'");
 		},
+		money: function(obj) {
+			url['filter'] = add_to_filter(url['filter'], "CreationDateTime ge datetimeoffset'" + date.toISOString() + "'");
+		},
 		default: function(obj) {
 			//nada
 		}
 	};
+
+	sign = nlp_obj['filter'].sign || sign;
 
 	Object.keys(nlp_obj).forEach( function(key) {
 		var func = funcs[key] || funcs['default'];
