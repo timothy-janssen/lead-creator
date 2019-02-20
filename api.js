@@ -4,8 +4,6 @@ exports.call_api_post = function(token, cookie, lead){
 
 	var date = new Date(lead.lead_date.iso).toISOString();
 
-	var amt_txt = lead.lead_amount.amount + "";
-
 	var payload = { "Name": lead.lead_name,
 					"AccountPartyID": "1001562",
 					"OriginTypeCode": "003",
@@ -14,7 +12,7 @@ exports.call_api_post = function(token, cookie, lead){
 					"DistributionChannelCode": "01",
 					"DivisionCode": "00",
 					"EndDate": date.split('.')[0],
-					"ExpectedRevenueAmount": amt_txt,
+					"ExpectedRevenueAmount": lead.lead_amount.amount + "",
 					"ExpectedRevenueCurrencyCode": lead.lead_amount.currency,
 					"LeadItem":[{
 						 	"ProductID":"10000954",
@@ -26,7 +24,7 @@ exports.call_api_post = function(token, cookie, lead){
 						    "unitCode": "EA"
 						}
 					]};
-	console.log(payload);
+					
 	var post_options = {
 	    uri:    "https://my341721.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection",
 	    method:  "POST",
