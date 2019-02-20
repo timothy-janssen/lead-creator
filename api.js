@@ -24,7 +24,7 @@ exports.call_api_post = function(token, cookie, lead){
 						    "unitCode": "EA"
 						}
 					]};
-					
+
 	var post_options = {
 	    uri:    "https://my341721.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection",
 	    method:  "POST",
@@ -70,7 +70,7 @@ map_to_response = function (data){
 	var response = { "elements": [] };	
 
   	data.forEach( function(lead){
-  		var value = '' + lead.ExpectedRevenueCurrencyCodeText + lead.ExpectedRevenueAmount;
+  		var value = '' + lead.ExpectedRevenueAmount + lead.ExpectedRevenueCurrencyCodeText;
   		var exp_close =  new Date(lead.EndDate);
   		response.elements.push({
         	"title": lead.Name,
