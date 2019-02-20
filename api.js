@@ -15,7 +15,7 @@ exports.call_api_post = function(token, cookie, lead){
 					"DivisionCode": "00",
 					"EndDate": date.split('.')[0],
 					"ExpectedRevenueAmount": amt_txt,
-					"ExpectedRevenueCurrencyCodeText": lead.lead_amount.currency,
+					"ExpectedRevenueCurrencyCode": lead.lead_amount.currency,
 					"LeadItem":[{
 						 	"ProductID":"10000954",
 						    "Quantity":"2",
