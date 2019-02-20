@@ -12,27 +12,27 @@ exports.getSelOpts = function (nlp_obj) {
 
 	var funcs = {
 		sort: function(obj) { 
-			url['orderby'] = "&$orderby=LastChangeDateTime " + obj.order;
+			url['orderby'] = "&$orderby=EndDate " + obj.order;
 		},
 		ordinal: function(obj) { 
 			if(obj.rank > 0) {
-				url['orderby'] = "&$orderby=LastChangeDateTime asc"
+				url['orderby'] = "&$orderby=EndDate asc"
 			} else if(obj.rank < 0){
-				url['orderby'] = "&$orderby=LastChangeDateTime desc";
+				url['orderby'] = "&$orderby=EndDate desc";
 			}
 		},
 		number: function(obj) { 
 			url['top'] = "&$top=" + obj.scalar;
 		},
 		organization: function(obj) { 
-			url['filter'] = add_to_filter(url['filter'], "Company eq " + obj.raw);
+			url['filter'] = add_to_filter(url['filter'], "Company " + sign + " " + obj.raw);
 		},
 		datetime: function(obj) { 
 			date = new Date(obj.iso);
-			url['filter'] = add_to_filter(url['filter'], "CreationDateTime ge datetimeoffset'" + date.toISOString() + "'");
+			url['filter'] = add_to_filter(url['filter'], "EndDate " + sign + " datetimeoffset'" + date.toISOString() + "'");
 		},
 		money: function(obj) {
-			url['filter'] = add_to_filter(url['filter'], "CreationDateTime ge datetimeoffset'" + date.toISOString() + "'");
+			url['filter'] = add_to_filter(url['filter'], "ExpectedRevenueAmount " + sign + " " + obj.amount);
 		},
 		default: function(obj) {
 			//nada
