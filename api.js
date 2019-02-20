@@ -12,7 +12,7 @@ exports.call_api_post = function(token, cookie, lead){
 					"DistributionChannelCode": "01",
 					"DivisionCode": "00",
 					"EndDate": date.split('.')[0],
-					"ExpectedRevenueAmount": '\'' + lead.lead_amount.amount + '\'',
+					"ExpectedRevenueAmount": "'" + lead.lead_amount.amount + "'",
 					"ExpectedRevenueCurrencyCodeText": lead.lead_amount.currency,
 					"LeadItem":[{
 						 	"ProductID":"10000954",
