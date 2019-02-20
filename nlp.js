@@ -41,7 +41,7 @@ exports.getSelOpts = function (nlp_obj) {
 		}
 	};
 
-	sign = nlp_obj['filter'].sign || 'eq';
+	sign = nlp_obj['filter'][0].sign || 'eq';
 
 	Object.keys(nlp_obj).forEach( function(key) {
 		var func = funcs[key] || funcs['default'];
