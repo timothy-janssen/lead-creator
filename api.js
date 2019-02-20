@@ -4,7 +4,7 @@ exports.call_api_post = function(token, cookie, lead){
 
 	var date = new Date(lead.lead_date.iso).toISOString();
 
-	console.log("'" + lead.lead_amount.amount + "'");
+	var amt_txt = "'" + lead.lead_amount.amount + "'";
 
 	var payload = { "Name": lead.lead_name,
 					"AccountPartyID": "1001562",
@@ -14,7 +14,7 @@ exports.call_api_post = function(token, cookie, lead){
 					"DistributionChannelCode": "01",
 					"DivisionCode": "00",
 					"EndDate": date.split('.')[0],
-					"ExpectedRevenueAmount": "'" + lead.lead_amount.amount + "'",
+					"ExpectedRevenueAmount": amt_txt,
 					"ExpectedRevenueCurrencyCodeText": lead.lead_amount.currency,
 					"LeadItem":[{
 						 	"ProductID":"10000954",
