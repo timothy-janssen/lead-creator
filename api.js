@@ -31,7 +31,7 @@ exports.call_api_post = function(token, cookie, lead){
 	    json:    true,
 	    body: payload,
 	    headers: {      
-	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
+//	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
 	         "Content-Type":  "application/json",
 	         "x-csrf-token": token,
 	         "cookie": cookie
@@ -49,7 +49,7 @@ exports.call_api_get = function(token, cookie, sel_opts){
 	    method:  "GET",
 	    json:    true,
 	    headers: {      
-	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
+//	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
 	         "Content-Type":  "application/json",
 	         "x-csrf-token": token,
 	         "cookie": cookie
