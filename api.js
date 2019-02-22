@@ -33,8 +33,8 @@ exports.call_api_post = function(token, cookie, lead){
 	    headers: {      
 //	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
 	         "Content-Type":  "application/json",
-	         "x-csrf-token": token,
-	         "cookie": cookie
+	         "x-csrf-token": 'IfQg4sXaW5ruXYwwzMuPXw=='//,
+//	         "cookie": cookie
 	    }
 	};
 
@@ -51,8 +51,8 @@ exports.call_api_get = function(token, cookie, sel_opts){
 	    headers: {      
 //	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
 	         "Content-Type":  "application/json",
-	         "x-csrf-token": token,
-	         "cookie": cookie
+	         "x-csrf-token": 'IfQg4sXaW5ruXYwwzMuPXw=='//,
+//	         "cookie": cookie
 	    }
 	};
 
