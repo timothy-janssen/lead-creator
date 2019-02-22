@@ -2,7 +2,6 @@ var express = require('express');
 
 const bodyParser = require('body-parser');
 const config = require('./config.js');
-var csrf    = require('./get-csrf-token.js');
 var api     = require('./api.js');
 var decoder = require('./nlp.js')
 
@@ -14,6 +13,9 @@ app.post('/create-lead', function (req, res) {
 
 	//conversation memory
 	const memory = req.body.conversation.memory;
+	const token = memory.token;
+	const cookie = memory.cookie;
+
 	var lead = {
 		"lead_name": memory['lead-name'],
 		"lead_amount": memory['lead-amount'],
@@ -23,20 +25,19 @@ app.post('/create-lead', function (req, res) {
 
 	console.log("Creating lead: " + lead.lead_name);
 
-	csrf.getToken()
-	.then( function(token_data){
-		console.log('Received token: ' + token_data.token);
-		api.call_api_post(token_data.token, token_data.cookie, lead)
-		.then(function(api_data){
-			card = [{type: 'text', content: 'Your lead has been created'}];
-    		res.json({
-    		  replies: card
-    		});
-		});
+	api.call_api_post(token, cookie, lead)
+	.then(function(api_data){
+		card = [{type: 'text', content: 'Your lead has been created'}];
+    	res.json({
+    	  replies: card
+    	});
 	})
-	.catch( function(err){
-		console.log(err);
-	});
+	.catch(){
+		card = [{type: 'text', content: 'Backend call failed'}];
+    	res.json({
+    	  replies: card
+    	});
+	};
 });
 
 app.post('/get-lead', function (req, res) {
@@ -47,31 +48,32 @@ app.post('/get-lead', function (req, res) {
 	const nlp = req.body.nlp;
 	const entities = nlp.entities;
 
-	csrf.getToken()
-	.then( function(token_data){
-		console.log('Received token: ' + token_data.token);
+	const token = memory.token;
+	const cookie = memory.cookie;
 
-		var sel_opts = decoder.getSelOpts(entities);
+	var sel_opts = decoder.getSelOpts(entities);
 
-		api.call_api_get(token_data.token, token_data.cookie, sel_opts)
-		.then(function(api_data){
-			res.json({
-    		  replies: [
-   				  {
-   				    type: 'text',
-   				    content: "Here's what I found for you!",
-   				  },{
-   				  	type: 'list',
-   				  	content: api_data,
-    				buttons: []
-   				  }
-   				],
-    		});
-		});
+	api.call_api_get(token_data.token, token_data.cookie, sel_opts)
+	.then(function(api_data){
+		res.json({
+    	  replies: [
+   			  {
+   			    type: 'text',
+   			    content: "Here's what I found for you!",
+   			  },{
+   			  	type: 'list',
+   			  	content: api_data,
+    			buttons: []
+   			  }
+   			],
+    	});
 	})
-	.catch( function(err){
-		console.log(err);
-	}); 
+	.catch(){
+		card = [{type: 'text', content: 'Backend call failed'}];
+    	res.json({
+    	  replies: card
+    	});
+	};
 });
 
 app.post('/save-lead-name', function (req, res) {
