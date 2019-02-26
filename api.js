@@ -33,7 +33,7 @@ exports.call_api_post = function(token, cookie, lead){
 	    headers: {      
 //	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
 	         "Content-Type":  "application/json",
-	         "x-csrf-token": 'IfQg4sXaW5ruXYwwzMuPXw=='//,
+	         "x-csrf-token": token//,
 //	         "cookie": cookie
 	    }
 	};
