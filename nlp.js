@@ -40,8 +40,12 @@ exports.getSelOpts = function (nlp_obj) {
 			//nada
 		}
 	};
-
-	sign = nlp_obj['filter'][0].sign || 'eq';
+	if(nlp_obj['filter']){
+		sign = nlp_obj['filter'][0].sign || 'eq';
+	} else {
+		sign = 'eq';
+	}
+	
 
 	Object.keys(nlp_obj).forEach( function(key) {
 		var func = funcs[key] || funcs['default'];
