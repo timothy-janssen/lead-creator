@@ -47,7 +47,7 @@ app.post('/get-lead', function (req, res) {
 
 	var sel_opts = decoder.getSelOpts(entities);
 
-	api.call_api_get(token_data.token, token_data.cookie, sel_opts)
+	api.call_api_get(token, cookie, sel_opts)
 	.then(function(api_data){
 		res.json({
     	  replies: [
