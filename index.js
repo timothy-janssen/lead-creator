@@ -31,13 +31,7 @@ app.post('/create-lead', function (req, res) {
     	res.json({
     	  replies: card
     	});
-	})
-	.catch(){
-		card = [{type: 'text', content: 'Backend call failed'}];
-    	res.json({
-    	  replies: card
-    	});
-	};
+	});
 });
 
 app.post('/get-lead', function (req, res) {
@@ -67,13 +61,13 @@ app.post('/get-lead', function (req, res) {
    			  }
    			],
     	});
-	})
+	})/*
 	.catch(){
 		card = [{type: 'text', content: 'Backend call failed'}];
     	res.json({
     	  replies: card
     	});
-	};
+	}*/;
 });
 
 app.post('/save-lead-name', function (req, res) {
