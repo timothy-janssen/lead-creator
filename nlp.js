@@ -58,6 +58,8 @@ exports.getSelOpts = function (nlp_obj) {
 		ret += url[key];
 	});
 
+	ret = ret.replace(' ', '%22');
+
 	return ret.replace( /^&/,''); //remove leading &
 };
 
