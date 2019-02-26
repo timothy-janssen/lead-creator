@@ -41,7 +41,7 @@ exports.call_api_post = function(token, cookie, lead){
 	return request.post(post_options)
 	.then(console.log('[POST] Request completed'))
 	.catch(function (err) {
-		console.log(err);
+		//console.log(err);
 	});
 };
 	
