@@ -38,8 +38,11 @@ exports.call_api_post = function(token, cookie, lead){
 	    }
 	};
 
-	return request(post_options)
-	.then(console.log('[POST] Request completed'));
+	return request.post(post_options)
+	.then(console.log('[POST] Request completed'))
+	.catch(function (err) {
+		console.log(err);
+	});
 };
 	
 exports.call_api_get = function(token, cookie, sel_opts){
@@ -58,10 +61,13 @@ exports.call_api_get = function(token, cookie, sel_opts){
 
 	console.log("[GET] " + get_options.uri);
 
-	return request(get_options)
+	return request.get(get_options)
 	.then(function (data){
 		console.log('[GET] Request completed');
 		return map_to_response(data.d.results); 
+	})
+	.catch(function (err) {
+		console.log(err);
 	})
 	//.then();
 };
