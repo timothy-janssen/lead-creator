@@ -30,7 +30,7 @@ app.post('/create-lead', function (req, res) {
 	csrf.getToken(potential_cookie, potential_token)
 	.then( function(token_data){
 		console.log('Received token: ' + token_data.token);
-		api.call_api_post(token, cookie, lead)
+		api.call_api_post(token_data.token, token_data.cookie, lead)
 		.then(function(api_data){
 			card = [{type: 'text', content: 'Your lead has been created'}];
     		res.json({
