@@ -72,7 +72,7 @@ app.post('/create-lead', function (req, res) {
 */
 
 app.post('/get-lead', function (req, res) {
-	console.log('[POST] get-lead');
+	console.log('[GET] get-lead');
 
 	//conversation memory
 	//conversation memory
