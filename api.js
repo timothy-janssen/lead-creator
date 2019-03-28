@@ -38,6 +38,9 @@ exports.call_api_post = function(token, cookie, lead){
 	    }
 	};
 
+	console.log('token: ' + token);
+	console.log('cookie: ' + cookie);
+
 	return request.post(post_options)
 	.then(console.log('[POST] Request completed'))
 	.catch(function (err) {
