@@ -15,8 +15,10 @@ app.post('/create-lead', function (req, res) {
 
 	//conversation memory
 	const memory = req.body.conversation.memory;
+
 	var potential_cookie = memory['cookie'];
 	var potential_token = memory['token'];
+
 	var leadName = memory['lead-name'].value;
 	console.log("Creating lead: " + leadName);
 
@@ -39,7 +41,7 @@ app.post('/create-lead', function (req, res) {
 		});
 	})
 	.catch( function(err){
-		console.log(err);
+		//console.log(err);
 	});
 });
 
@@ -87,6 +89,7 @@ app.post('/get-lead', function (req, res) {
 
 	csrf.getToken(potential_cookie, potential_token)
 	.then( function(token_data){
+		console.log('Received token: ' + token_data.token);
 		api.call_api_get(token_data.token, token_data.cookie, sel_opts)
 		.then( function(api_data){
 			res.json({
@@ -104,7 +107,7 @@ app.post('/get-lead', function (req, res) {
 		});
 	})
 	.catch( function(err){
-		console.log(err);
+		//console.log(err);
 	}); 
 });
 
