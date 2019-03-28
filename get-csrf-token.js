@@ -18,6 +18,7 @@ var options = {
 
 exports.getToken = function(potential_cookie, potential_token)  {
   if (potential_cookie && potential_token) {
+    console.log("already have a token");
     return resolve({"cookie": potential_cookie, "token": potential_token});
   } else {
     return new Promise((resolve, reject) => {
