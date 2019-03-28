@@ -20,12 +20,12 @@ app.post('/create-lead', function (req, res) {
 	var potential_token = memory['token'];
 
 	var lead = {
-		"lead_name": memory['lead-name'],
+		"lead_name": memory['lead-name'].raw,
 		"lead_amount": memory['lead-amount'],
 		"lead_date": memory['lead-date']
 
 	}
-	console.log("Creating lead: " + lead.lead_name.stringify());
+	console.log("Creating lead: " + memory['lead-name'].raw);
 
 	csrf.getToken(potential_cookie, potential_token)
 	.then( function(token_data){
