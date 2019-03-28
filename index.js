@@ -79,7 +79,7 @@ app.post('/get-lead', function (req, res) {
 
 	csrf.getToken(potential_cookie, potential_token)
 	.then( function(token_data){
-		api.call_api_get(token_data.token, token_data.cookie)
+		api.call_api_get(token_data.token, token_data.cookie, sel_opts)
 		.then( function(api_data){
 			res.json({
     		  replies: [
@@ -100,7 +100,7 @@ app.post('/get-lead', function (req, res) {
 	}); 
 });
 
-
+/*
 app.post('/get-lead', function (req, res) {
 	console.log('[POST] get-lead');
 
@@ -128,14 +128,15 @@ app.post('/get-lead', function (req, res) {
    			  }
    			],
     	});
-	})/*
+	})
 	.catch(){
 		card = [{type: 'text', content: 'Backend call failed'}];
     	res.json({
     	  replies: card
     	});
-	}*/;
+	};
 });
+*/
 
 app.post('/save-lead-name', function (req, res) {
 	console.log('[POST] save-lead-name');
