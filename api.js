@@ -39,12 +39,10 @@ exports.call_api_post = function(token, cookie, lead){
 	    }
 	};
 
-	console.log(post_options);
-
 	return request.post(post_options)
 	.then(console.log('[POST] Request completed'))
 	.catch(function (err) {
-		//console.log(post_options);
+		//console.log(err);
 	});
 };
 	
@@ -87,6 +85,8 @@ map_to_response = function (data){
     		"buttons": []
         });
   	});
+
+  	console.log(response);
 
 	return response;
 }
