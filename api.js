@@ -2,7 +2,7 @@ var request = require('request-promise');
 
 exports.call_api_post = function(token, cookie, lead){
 
-	console.log(lead..stringify() + "");
+	console.log(lead.stringify() + "");
 
 	var date = new Date(lead.lead_date.iso).toISOString();
 
