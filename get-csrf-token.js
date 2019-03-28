@@ -15,10 +15,14 @@ var options = {
     }
 };
 
-exports.getToken = function()  {
+exports.getToken = function(cookie_exists)  {
+  if (cookie_exists){
+    return new Promise(resolve(cookie_exists));
+  } else {
     return new Promise((resolve, reject) => {
         request(options)
         .then( data => { resolve(data); } )
         .catch( data => { reject(data); } );
     });
+  }
 }
