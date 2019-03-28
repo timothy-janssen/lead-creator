@@ -34,7 +34,7 @@ exports.call_api_post = function(token, cookie, lead){
 	    body: payload,
 	    headers: {      
 //	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
-	         "Authorization": "Basic VVNTQUxFU1JFUDAxOldlbGNvbWUx==", // base64 encoding of USSALESREP01:Welcome1
+//	         "Authorization": "Basic VVNTQUxFU1JFUDAxOldlbGNvbWUx==", // base64 encoding of USSALESREP01:Welcome1
 	         "Content-Type":  "application/json",
 	         "x-csrf-token": token,
 	         "cookie": cookie
@@ -43,7 +43,7 @@ exports.call_api_post = function(token, cookie, lead){
 
 	console.log(post_options);
 
-	return request.post(post_options)
+	request.post(post_options)
 	.then(console.log('[POST] Request completed'))
 	.catch(function (err) {
 		//console.log(post_options);
@@ -66,7 +66,7 @@ exports.call_api_get = function(token, cookie, sel_opts){
 
 	console.log("[GET] " + get_options.uri);
 
-	return request.get(get_options)
+	request.get(get_options)
 	.then(function (data){
 		console.log('[GET] Request completed');
 		return map_to_response(data.d.results); 
