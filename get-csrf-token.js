@@ -16,9 +16,9 @@ var options = {
     }
 };
 
-exports.getToken = function(cookie_exists)  {
-  if (cookie_exists){
-    return new Promise(resolve(cookie_exists));
+exports.getToken = function(potential_cookie, potential_token)  {
+  if (potential_cookie && potential_token) {
+    return resolve({"cookie": potential_cookie, "token": potential_token});
   } else {
     return new Promise((resolve, reject) => {
       request(options)

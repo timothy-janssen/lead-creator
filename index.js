@@ -75,7 +75,6 @@ app.post('/get-lead', function (req, res) {
 	console.log('[GET] get-lead');
 
 	//conversation memory
-	//conversation memory
 	const memory = req.body.conversation.memory;
 	const nlp = req.body.nlp;
 	const entities = nlp.entities;
