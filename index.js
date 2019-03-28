@@ -2,6 +2,7 @@ var express = require('express');
 
 const bodyParser = require('body-parser');
 const config = require('./config.js');
+var csrf    = require('./get-csrf-token.js');
 var api     = require('./api.js');
 var decoder = require('./nlp.js')
 
