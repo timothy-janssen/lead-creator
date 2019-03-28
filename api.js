@@ -53,8 +53,8 @@ exports.call_api_get = function(token, cookie, sel_opts){
 	    method:  "GET",
 	    json:    true,
 	    headers: {      
-	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
-//	         "Authorization": "Basic VVNTQUxFU1JFUDAxOldlbGNvbWUx==", // base64 encoding of USSALESREP01:Welcome1
+//	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
+	         "Authorization": "Basic VVNTQUxFU1JFUDAxOldlbGNvbWUx==", // base64 encoding of USSALESREP01:Welcome1
 	         "Content-Type":  "application/json",
 	         "x-csrf-token": token,
 	         "cookie": cookie
@@ -69,7 +69,7 @@ exports.call_api_get = function(token, cookie, sel_opts){
 		return map_to_response(data.d.results); 
 	})
 	.catch(function (err) {
-		//console.log(err);
+		console.log(err);
 	});
 };
 
