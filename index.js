@@ -101,6 +101,7 @@ app.post('/get-lead', function (req, res) {
    				  }
    				],
     		});
+    		console.log(res);
 		});
 	})
 	.catch( function(err){
