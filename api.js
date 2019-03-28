@@ -40,10 +40,12 @@ exports.call_api_post = function(token, cookie, lead){
 	    }
 	};
 
+	console.log(post_options);
+	
 	return request.post(post_options)
 	.then(console.log('[POST] Request completed'))
 	.catch(function (err) {
-		//console.log(err);
+		//console.log(post_options);
 	});
 };
 	
