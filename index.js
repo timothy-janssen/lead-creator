@@ -8,6 +8,34 @@ var decoder = require('./nlp.js')
 var app = express();
 app.use(bodyParser.json());
 
+
+app.post('/create-lead', function (req, res) {
+	console.log('[POST] create-lead');
+
+	//conversation memory
+	const memory = req.body.conversation.memory;
+	var potential_cookie = memory['cookie'];
+	var potential_token = memory['token'];
+	var leadName = memory['lead-name'].value;
+	console.log("Creating lead: " + leadName);
+
+	csrf.getToken(potential_cookie, potential_token)
+	.then( function(token_data){
+		console.log('Received token: ' + token_data.token);
+		api.call_api_post(token_data.token, token_data.cookie, leadName)
+		.then(function(api_data){
+			card = [{type: 'text', content: 'Your lead has been created'}];
+    		res.json({
+    		  replies: card
+    		});
+		});
+	})
+	.catch( function(err){
+		console.log(err);
+	});
+});
+
+/*
 app.post('/create-lead', function (req, res) {
 	console.log('[POST] create-lead');
 
@@ -33,6 +61,45 @@ app.post('/create-lead', function (req, res) {
     	});
 	});
 });
+*/
+
+app.post('/get-lead', function (req, res) {
+	console.log('[POST] get-lead');
+
+	//conversation memory
+	//conversation memory
+	const memory = req.body.conversation.memory;
+	const nlp = req.body.nlp;
+	const entities = nlp.entities;
+
+	var potential_cookie = memory['cookie'];
+	var potential_token = memory['token'];
+
+	var sel_opts = decoder.getSelOpts(entities);
+
+	csrf.getToken(potential_cookie, potential_token)
+	.then( function(token_data){
+		api.call_api_get(token_data.token, token_data.cookie)
+		.then( function(api_data){
+			res.json({
+    		  replies: [
+   				  {
+   				    type: 'text',
+   				    content: "Here's what I found for you!",
+   				  },{
+   				  	type: 'list',
+   				  	content: api_data || {},
+    				buttons: []
+   				  }
+   				],
+    		});
+		});
+	})
+	.catch( function(err){
+		console.log(err);
+	}); 
+});
+
 
 app.post('/get-lead', function (req, res) {
 	console.log('[POST] get-lead');
