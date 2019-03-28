@@ -2,6 +2,8 @@ var request = require('request-promise');
 
 exports.call_api_post = function(token, cookie, lead){
 
+	console.log(lead + "");
+
 	var date = new Date(lead.lead_date.iso).toISOString();
 
 	var payload = { "Name": lead.lead_name,

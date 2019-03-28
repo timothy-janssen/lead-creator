@@ -18,11 +18,9 @@ var options = {
 
 exports.getToken = function(cookie_exists)  {
   if (cookie_exists){
-    console.log('abcdefg' + cookie_exists);
     return new Promise(resolve(cookie_exists));
   } else {
     return new Promise((resolve, reject) => {
-      console.log('got here though');
       request(options)
       .then( data => { resolve(data); } )
       .catch( data => { reject(data); } );

@@ -20,7 +20,7 @@ app.post('/create-lead', function (req, res) {
 	var potential_token = memory['token'];
 
 	var lead = {
-		"lead_name": memory['lead-name'].value,
+		"lead_name": memory['lead-name'],
 		"lead_amount": memory['lead-amount'],
 		"lead_date": memory['lead-date']
 
