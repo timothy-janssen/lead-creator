@@ -105,7 +105,10 @@ app.post('/get-lead', function (req, res) {
 		});
 	})
 	.catch( function(err){
-		//console.log(err);
+		card = [{type: 'text', content: 'Backend call failed'}];
+    	res.json({
+    	  replies: card
+    	});
 	}); 
 });
 
