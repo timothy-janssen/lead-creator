@@ -10,7 +10,8 @@ var options = {
 	},
     headers: {       
          "X-CSRF-Token":  "Fetch",
-         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
+         //"Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
+         "Authorization": "Basic VVNTQUxFU1JFUDAxOldlbGNvbWUx==", // base64 encoding of USSALESREP01:Welcome1
          "Content-Type":  "application/json"
     }
 };
@@ -28,3 +29,8 @@ exports.getToken = function(cookie_exists)  {
     });
   }
 }
+
+/*
+Username: USSALESREP01
+Password: Welcome1
+*/
