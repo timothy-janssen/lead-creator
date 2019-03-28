@@ -67,9 +67,8 @@ exports.call_api_get = function(token, cookie, sel_opts){
 		return map_to_response(data.d.results); 
 	})
 	.catch(function (err) {
-		console.log(err);
-	})
-	//.then();
+		//console.log(err);
+	});
 };
 
 map_to_response = function (data){
