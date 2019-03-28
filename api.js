@@ -2,7 +2,7 @@ var request = require('request-promise');
 
 exports.call_api_post = function(token, cookie, lead){
 
-	console.log(lead + "");
+	console.log(lead.toString() + "");
 
 	var date = new Date(lead.lead_date.iso).toISOString();
 
@@ -39,9 +39,6 @@ exports.call_api_post = function(token, cookie, lead){
 	         "cookie": cookie
 	    }
 	};
-
-	console.log('token: ' + token);
-	console.log('cookie: ' + cookie);
 
 	return request.post(post_options)
 	.then(console.log('[POST] Request completed'))
