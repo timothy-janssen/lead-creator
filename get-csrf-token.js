@@ -17,12 +17,14 @@ var options = {
 
 exports.getToken = function(cookie_exists)  {
   if (cookie_exists){
+    console.log('got here');
     return new Promise(resolve(cookie_exists));
   } else {
     return new Promise((resolve, reject) => {
-        request(options)
-        .then( data => { resolve(data); } )
-        .catch( data => { reject(data); } );
+      console.log('got here though');
+      request(options)
+      .then( data => { resolve(data); } )
+      .catch( data => { reject(data); } );
     });
   }
 }
