@@ -61,7 +61,7 @@ exports.call_api_get = function(token, cookie, sel_opts){
 	    }
 	};
 
-	console.log("[GET] " + stringify(get_options));
+	console.log("[GET] " + get_options.uri);
 
 	return request.get(get_options)
 	.then(function (data){
