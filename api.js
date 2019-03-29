@@ -70,17 +70,19 @@ exports.call_api_get = function(token, cookie, sel_opts){
 	})
 	.catch(function (err) {
 		console.log("ERROR: " + err);
+
+		return{ "elements": [{}] };
 	});
 };
 
 map_to_response = function (data){
-	var response = { "elements": [] };	
+	var response = { "elements": [{type: 'text', content: 'Backend call failed'}] };	
 
   	data.forEach( function(lead){
   		console.log("*********************************");
   		console.log(lead);
   		console.log("*********************************");
-  		
+
   		var value = '' + lead.ExpectedRevenueAmount + lead.ExpectedRevenueCurrencyCodeText;
   		var exp_close =  new Date(lead.EndDate);
   		response.elements.push({

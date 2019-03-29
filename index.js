@@ -89,19 +89,32 @@ app.post('/get-lead', function (req, res) {
 		console.log('Received token: ' + token_data.token);
 		api.call_api_get(token_data.token, token_data.cookie, sel_opts)
 		.then( function(api_data){
-			res.json({
-    		  replies: [
-   				  {
-   				    type: 'text',
-   				    content: "Here's what I found for you!",
-   				  },{
-   				  	type: 'list',
-   				  	content: api_data || {},
-    				buttons: []
-   				  }
-   				],
-    		});
-    		console.log(res.json.replies);
+			if(api_data){
+				res.json({
+    			  replies: [
+   					  {
+   					    type: 'text',
+   					    content: "Here's what I found for you!",
+   					  },{
+   					  	type: 'list',
+   					  	content: api_data,
+    					buttons: []
+   					  }
+   					],
+    			});
+			} else {
+				res.json({
+    			  replies: [
+   					  {
+   					    type: 'text',
+   					    content: "Unable to find any leads",
+   					  },{
+   					    type: 'text',
+   					    content: "Debugging info: this is likely because of a broken token",
+   					  }
+   					],
+    			});
+			}
 		});
 	})
 	.catch( function(err){
