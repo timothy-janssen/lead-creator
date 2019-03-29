@@ -70,8 +70,6 @@ exports.call_api_get = function(token, cookie, sel_opts){
 	})
 	.catch(function (err) {
 		console.log("ERROR: " + err);
-
-		return{ "elements": [{}] };
 	});
 };
 
