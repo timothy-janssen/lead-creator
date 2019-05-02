@@ -1,4 +1,5 @@
 var request = require('request-promise');
+var config = require('./config');
 
 var options = {
     uri:    "https://my341721.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/",
@@ -10,8 +11,7 @@ var options = {
 	},
     headers: {       
          "X-CSRF-Token":  "Fetch",
-         //"Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
-         "Authorization": "Basic VVNTQUxFU1JFUDAxOldlbGNvbWUx==", // base64 encoding of USSALESREP01:Welcome1
+         "Authorization": config.C4_API_AUTH, // base64 encoding of USSALESREP01:Welcome1
          "Content-Type":  "application/json"
     }
 };

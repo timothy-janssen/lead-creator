@@ -1,4 +1,5 @@
 var request = require('request-promise');
+var config = require('./config');
 
 exports.call_api_post = function(token, cookie, lead){
 
@@ -31,8 +32,7 @@ exports.call_api_post = function(token, cookie, lead){
 	    json:    true,
 	    body: payload,
 	    headers: {      
-//	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
-	         "Authorization": "Basic VVNTQUxFU1JFUDAxOldlbGNvbWUx==", // base64 encoding of USSALESREP01:Welcome1
+	         "Authorization": config.C4_API_AUTH, // base64 encoding of USSALESREP01:Welcome1
 	         "Content-Type":  "application/json",
 	         "x-csrf-token": token,
 	         "cookie": cookie
@@ -53,8 +53,7 @@ exports.call_api_get = function(token, cookie, sel_opts){
 	    method:  "GET",
 	    json:    true,
 	    headers: {      
-//	         "Authorization": "Basic YWRtaW5pc3RyYXRpb24wMTpXZWxjb21lNQ==", // base64 encoding of administration01:Welcome5
-	         "Authorization": "Basic VVNTQUxFU1JFUDAxOldlbGNvbWUx==", // base64 encoding of USSALESREP01:Welcome1
+	         "Authorization": config.C4_API_AUTH, // base64 encoding of USSALESREP01:Welcome1
 	         "Content-Type":  "application/json",
 	         "x-csrf-token": token,
 	         "cookie": cookie
@@ -77,9 +76,6 @@ map_to_response = function (data){
 	var response = { "elements": [{type: 'text', content: 'Backend call failed'}] };	
 
   	data.forEach( function(lead){
-  		console.log("*********************************");
-  		console.log(lead);
-  		console.log("*********************************");
 
   		var value = '' + lead.ExpectedRevenueAmount + lead.ExpectedRevenueCurrencyCodeText;
   		var exp_close =  new Date(lead.EndDate);
