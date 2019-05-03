@@ -11,7 +11,7 @@ var options = {
 	},
     headers: {       
          "X-CSRF-Token":  "Fetch",
-         "Authorization": config.C4_API_AUTH, // base64 encoding of USSALESREP01:Welcome1
+         "Authorization": config.C4_API_AUTH,
          "Content-Type":  "application/json"
     }
 };
@@ -28,8 +28,3 @@ exports.getToken = function(potential_cookie, potential_token)  {
     });
   }
 }
-
-/*
-Username: USSALESREP01
-Password: Welcome1
-*/
