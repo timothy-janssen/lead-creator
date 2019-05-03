@@ -60,7 +60,9 @@ exports.call_api_get = function(token, cookie, sel_opts){
 	    }
 	};
 
-	console.log("[GET] " + get_options.headers);
+	console.log("[GET] " + get_options.headers["Authorization"]);
+	console.log("[GET] " + get_options.headers["x-csrf-token"]);
+	console.log("[GET] " + get_options.headers["cookie"]);
 
 	return request.get(get_options)
 	.then(function (data){
