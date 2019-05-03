@@ -1,6 +1,6 @@
 module.exports = {
    PORT: process.env.PORT,
-   C4_API_AUTH: "Basic " + process.env.C4_API_AUTH // base64 encoding of "<user>:<password>"
+   C4_API_AUTH: "Basic " + process.env.C4_API_AUTH, // base64 encoding of "<user>:<password>"
    BOT_TOKEN: process.env.BOT_TOKEN // Hex encoded token (from CAI settings)
 };
 

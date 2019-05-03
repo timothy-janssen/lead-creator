@@ -32,7 +32,7 @@ exports.call_api_post = function(token, cookie, lead){
 	    json:    true,
 	    body: payload,
 	    headers: {      
-	         "Authorization": config.C4_API_AUTH, // base64 encoding of USSALESREP01:Welcome1
+	         "Authorization": config.C4_API_AUTH,
 	         "Content-Type":  "application/json",
 	         "x-csrf-token": token,
 	         "cookie": cookie
@@ -53,7 +53,7 @@ exports.call_api_get = function(token, cookie, sel_opts){
 	    method:  "GET",
 	    json:    true,
 	    headers: {      
-	         "Authorization": config.C4_API_AUTH, // base64 encoding of USSALESREP01:Welcome1
+	         "Authorization": config.C4_API_AUTH,
 	         "Content-Type":  "application/json",
 	         "x-csrf-token": token,
 	         "cookie": cookie
