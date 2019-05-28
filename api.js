@@ -27,7 +27,7 @@ exports.call_api_post = function(token, cookie, lead){
 					]};
 
 	var post_options = {
-	    uri:    "https://my341721.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection",
+	    uri:    "https://my343473.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection",
 	    method:  "POST",
 	    json:    true,
 	    body: payload,
@@ -49,7 +49,7 @@ exports.call_api_post = function(token, cookie, lead){
 exports.call_api_get = function(token, cookie, sel_opts){
 
 	var get_options = {
-	    uri:    "https://my341721.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection?" + sel_opts,
+	    uri:    "https://my343473.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/LeadCollection?" + sel_opts,
 	    method:  "GET",
 	    json:    true,
 	    headers: {      
