@@ -23,8 +23,8 @@ app.post('/create-lead', function (req, res) {
 		"lead_name": memory['lead-name'],
 		"lead_amount": memory['lead-amount'],
 		"lead_date": memory['lead-date']
-
 	}
+	
 	console.log("Creating lead: " + lead.lead_name);
 
 	csrf.getToken(potential_cookie, potential_token)
