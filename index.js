@@ -109,7 +109,7 @@ app.post('/save-lead-name', function (req, res) {
 
 // Recast will send a post request to /errors to notify errors
 app.post('/errors', (req, res) => {
-   console.error(req.body);
+   console.error('ERROR: ' + req.body);
    res.sendStatus(200); 
 
 });
