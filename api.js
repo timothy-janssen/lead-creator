@@ -75,7 +75,7 @@ exports.call_api_get = function(token, cookie, sel_opts){
 };
 
 map_to_response = function (data){
-	var response = { "elements": [{type: 'text', content: 'Backend call failed'}] };	
+	var response = { "elements": [] };	
 
   	data.forEach( function(lead){
 
