@@ -107,6 +107,23 @@ app.post('/save-lead-name', function (req, res) {
 
 });
 
+app.get('/', function (req, res) {
+	console.log('[GET] home')
+	res.send(`
+        <!doctype html>
+        <html>
+
+        <body>
+         <script src="https://cdn.cai.tools.sap/webchat/webchat.js"
+            channelId="2f26542f-e158-4faf-8bb7-20df27fd752b"
+            token="8181028f4d91e01775d2e44662c4471f"
+            id="cai-webchat"
+            ></script>
+        </body>
+        </html>
+    `);
+});
+
 // Recast will send a post request to /errors to notify errors
 app.post('/errors', (req, res) => {
    console.error('ERROR: ' + req.body);
