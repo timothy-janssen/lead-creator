@@ -32,8 +32,9 @@ app.post('/create-lead', function (req, res) {
 		console.log('Received token: ' + token_data.token);
 		api.call_api_post(token_data.token, token_data.cookie, lead)
 		.then(function(api_data){
-			console.log(api_data)
-			card = [{type: 'text', content: 'Your lead has been created'}];
+				
+			var lead_id = api_data.d.results.id || '';
+			card = [{type: 'text', content: 'Lead ' + lead_id + ' has been created'}];
     		res.json({
     		  replies: card
     		});
