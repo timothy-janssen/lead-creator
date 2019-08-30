@@ -36,9 +36,9 @@ app.post('/create-lead', function (req, res) {
 			console.log('data: ' + api_data)
 			console.log('d: ' + api_data.d)
 			console.log('results: ' + api_data.d.results)
-			console.log('id: ' + api_data.d.results.id)
+			console.log('id: ' + api_data.d.results.ID)
 
-			var lead_id = api_data.d.results.id || '';
+			var lead_id = api_data.d.results.ID || '';
 			card = [{type: 'text', content: 'Lead ' + lead_id + ' has been created'}];
     		res.json({
     		  replies: card
