@@ -115,7 +115,7 @@ app.get('/', function (req, res) {
         <!doctype html>
         <html>
 
-        <body>
+        <body background="background.png">
          <script src="https://cdn.cai.tools.sap/webchat/webchat.js"
             channelId="2f26542f-e158-4faf-8bb7-20df27fd752b"
             token="8181028f4d91e01775d2e44662c4471f"
