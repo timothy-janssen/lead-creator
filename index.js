@@ -14,7 +14,7 @@ app.post('/create-lead', function (req, res) {
 	console.log('[POST] create-lead');
 
 	//conversation memory
-	const memory = req.body.conversation.memory;
+	var memory = req.body.conversation.memory;
 
 	var potential_cookie = memory['cookie'];
 	var potential_token = memory['token'];
@@ -49,9 +49,9 @@ app.post('/get-lead', function (req, res) {
 	console.log('[GET] get-lead');
 
 	//conversation memory
-	const memory = req.body.conversation.memory;
-	const nlp = req.body.nlp;
-	const entities = nlp.entities;
+	var memory = req.body.conversation.memory;
+	var nlp = req.body.nlp;
+	var entities = nlp.entities;
 
 	var potential_cookie = memory['cookie'];
 	var potential_token = memory['token'];
@@ -102,7 +102,7 @@ app.post('/get-lead', function (req, res) {
 app.post('/save-lead-name', function (req, res) {
 	console.log('[POST] save-lead-name');
 
-	const memory = req.body.conversation;
+	var memory = req.body.conversation;
 
 	console.log(memory);
 });
@@ -112,7 +112,11 @@ app.get('/wake', function (req, res) {
 
 	//conversation memory
 	console.log(req.body);
-	const memory = req.body.conversation.memory || {};
+	if (req.body.conversation){
+		var memory = req.body.conversation.memory;
+	} else {
+		memory = {}
+	}
 
 	var potential_cookie = memory['cookie'];
 	var potential_token = memory['token'];
