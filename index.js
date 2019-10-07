@@ -105,15 +105,13 @@ app.post('/save-lead-name', function (req, res) {
 	const memory = req.body.conversation;
 
 	console.log(memory);
-
-
 });
 
 app.get('/wake', function (req, res) {
 	console.log('[GET] wake the app up')
 
 	//conversation memory
-	const memory = req.body.conversation.memory;
+	const memory = req.body.conversation.memory || {};
 
 	var potential_cookie = memory['cookie'];
 	var potential_token = memory['token'];
@@ -121,7 +119,7 @@ app.get('/wake', function (req, res) {
 	csrf.getToken(potential_cookie, potential_token)
 	.then( function(){
 		res.end();
-	});	
+	});
 });
 
 app.get('/', function (req, res) {
