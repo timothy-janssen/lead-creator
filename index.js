@@ -109,6 +109,11 @@ app.post('/save-lead-name', function (req, res) {
 
 });
 
+app.get('/wake', function (req, res) {
+	console.log('[GET] wake the app up')
+	res.end();
+});
+
 app.get('/', function (req, res) {
 	console.log('[GET] home')
 	res.send(`
