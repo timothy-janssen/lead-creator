@@ -111,6 +111,7 @@ app.get('/wake', function (req, res) {
 	console.log('[GET] wake the app up')
 
 	//conversation memory
+	console.log(req.body);
 	const memory = req.body.conversation.memory || {};
 
 	var potential_cookie = memory['cookie'];
