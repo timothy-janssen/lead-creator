@@ -110,7 +110,7 @@ app.post('/save-lead-name', function (req, res) {
 app.get('/wake', function (req, res) {
 	console.log('[GET] wake the app up')
 
-	//conversation memory
+/*	//conversation memory
 	console.log(req.body);
 	if (req.body.conversation){
 		var memory = req.body.conversation.memory;
@@ -124,7 +124,9 @@ app.get('/wake', function (req, res) {
 	csrf.getToken(potential_cookie, potential_token)
 	.then( function(){
 		res.end();
-	});
+	});*/
+
+	res.end();
 });
 
 app.get('/', function (req, res) {
