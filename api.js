@@ -48,6 +48,8 @@ exports.call_api_post = function(token, cookie, lead){
 	
 exports.call_api_get = function(token, cookie, sel_opts){
 
+	console.log("[GET] options: " + sel_opts)
+	
 	var get_options = {
 	    uri:    config.BASE_URL + "/sap/c4c/odata/v1/c4codataapi/LeadCollection?" + sel_opts,
 	    method:  "GET",
