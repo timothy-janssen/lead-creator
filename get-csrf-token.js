@@ -7,6 +7,8 @@ var options = {
     json:    true,
     transform2xxOnly: true,
     transform: function(body, response, resolveWithFullResponse) {
+      console.log("Cookie: " + response.headers["set-cookie"])
+      console.log("Token: " + response.headers['x-csrf-token'])
   		return {'token': response.headers['x-csrf-token'], 'cookie': response.headers["set-cookie"], 'data': body};
 	},
     headers: {       
