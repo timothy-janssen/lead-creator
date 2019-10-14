@@ -118,10 +118,10 @@ app.post('/auth', function (req, res) {
     	memory["cookie"] = token_data.cookie
 		
 		res.json({
-    		conversation: [
+    		conversation: {
     			memory: memory,
     			merge_memory: true
-    		]
+    		}
     	});
 	})
 });
