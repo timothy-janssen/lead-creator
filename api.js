@@ -84,7 +84,7 @@ map_to_response = function (data){
 
   	data.forEach( function(lead){
 
-  		var value = lead.ExpectedRevenueAmount.toFixed(2) + ' ' + lead.ExpectedRevenueCurrencyCodeText;
+  		var value = parseFloat(lead.ExpectedRevenueAmount).toFixed(2) + ' ' + lead.ExpectedRevenueCurrencyCodeText;
 
   		lead.EndDate = lead.EndDate.replace(/[^0-9]/g,'')
 
