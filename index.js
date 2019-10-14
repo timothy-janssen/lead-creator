@@ -116,6 +116,8 @@ app.post('/auth', function (req, res) {
 	.then( function(token_data){
 		memory["token"] = token_data.token
     	memory["cookie"] = token_data.cookie
+
+    	cookie = cookie.join('')
 		
 		res.json({
     		conversation: {
