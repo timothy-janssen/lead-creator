@@ -79,6 +79,13 @@ exports.call_api_get = function(token, cookie, sel_opts){
 	});
 };
 
+var date_options = { 
+	weekday: 'short', 
+	year: 'numeric', 
+	month: 'short', 
+	day: 'numeric' 
+};
+
 map_to_response = function (data){
 	var response = { "elements": [] };	
 
@@ -93,7 +100,7 @@ map_to_response = function (data){
   		var exp_close =  new Date(date_int);
   		response.elements.push({
         	"title": lead.Name,
-        	"subtitle":  value + ' ' + exp_close,
+        	"subtitle":  value + ' ' + exp_close.toLocaleDateString("en-US", date_options),
     		"buttons": []
         });
   	});
