@@ -86,7 +86,7 @@ map_to_response = function (data){
 
   		var value = '' + lead.ExpectedRevenueAmount + lead.ExpectedRevenueCurrencyCodeText;
   		console.log("End date: " + lead.EndDate)
-  		var exp_close =  new Date(lead.EndDate);
+  		var exp_close =  new Date(lead.EndDate.replace(/[^0-9]/g,''));
   		response.elements.push({
         	"title": lead.Name,
         	"subtitle":  value + ' ' + exp_close,
