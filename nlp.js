@@ -40,6 +40,7 @@ exports.getSelOpts = function (nlp_obj) {
 			//nada
 		}
 	};
+
 	if(nlp_obj['filter']){
 		sign = nlp_obj['filter'][0].sign || 'eq';
 	} else {
@@ -58,7 +59,7 @@ exports.getSelOpts = function (nlp_obj) {
 		ret += url[key];
 	});
 
-	ret = ret.replace(' ', '%22');
+	ret = ret.replace(' ', '%20');
 
 	return ret.replace( /^&/,''); //remove leading &
 };
