@@ -107,6 +107,30 @@ app.post('/save-lead-name', function (req, res) {
 	console.log(memory);
 });
 
+app.post('/auth', function (req, res) {
+	console.log('[POST] auth');
+
+	var memory = req.body.conversation;
+
+	var potential_cookie = memory['cookie'];
+	var potential_token = memory['token'];
+
+	csrf.getToken(potential_cookie, potential_token)
+	.then( function(token_data){
+		memory["token"] = token_data.token
+		memory["cookie"] = token_data.cookie
+
+		console.log(memory);
+
+		res.json({
+    	  memory: memory,
+    	  merge_memory: true
+    	});
+	})
+
+	console.log(memory);
+});
+
 app.get('/wake', function (req, res) {
 
 	console.log('[GET] wake the app up')
