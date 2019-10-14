@@ -31,7 +31,7 @@ exports.getSelOpts = function (nlp_obj) {
 		},
 		datetime: function(obj) { 
 			date = new Date(obj.iso);
-			url['filter'] = add_to_filter(url['filter'], "EndDate%20" + sign + "%20(datetimeoffset'" + date.toISOString().split('.')[0] + "Z')");
+			url['filter'] = add_to_filter(url['filter'], "EndDate " + sign + "%20(datetimeoffset'" + date.toISOString().split('.')[0] + "Z')");
 		},
 		money: function(obj) {
 			url['filter'] = add_to_filter(url['filter'], "ExpectedRevenueAmount " + sign + "%20" + obj.amount);
