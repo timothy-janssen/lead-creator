@@ -27,7 +27,7 @@ exports.call_api_post = function(token, cookie, lead){
 					]
 	};
 	
-	console.log("Payload: " + payload)
+	console.log("Payload: " + payload.EndDate)
 
 	var post_options = {
 	    uri:    config.BASE_URL + "/sap/c4c/odata/v1/c4codataapi/LeadCollection",
