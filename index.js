@@ -110,7 +110,7 @@ app.post('/save-lead-name', function (req, res) {
 app.post('/auth', function (req, res) {
 	console.log('[POST] auth');
 
-	var memory = req.body.conversation;
+	var memory = req.body.conversation.memory;
 
 	var potential_cookie = memory['cookie'];
 	var potential_token = memory['token'];
