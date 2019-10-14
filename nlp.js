@@ -14,13 +14,13 @@ exports.getSelOpts = function (nlp_obj) {
 
 	var funcs = {
 		sort: function(obj) { 
-			url['orderby'] = "&$orderby=EndDate " + obj.order;
+			url['orderby'] = "&$orderby=CreationDateTime " + obj.order;
 		},
 		ordinal: function(obj) { 
 			if(obj.rank > 0) {
-				url['orderby'] = "&$orderby=EndDate asc"
+				url['orderby'] = "&$orderby=CreationDateTime asc"
 			} else if(obj.rank < 0){
-				url['orderby'] = "&$orderby=EndDate desc";
+				url['orderby'] = "&$orderby=CreationDateTime desc";
 			}
 		},
 		number: function(obj) { 
@@ -31,7 +31,7 @@ exports.getSelOpts = function (nlp_obj) {
 		},
 		datetime: function(obj) { 
 			date = new Date(obj.iso);
-			url['filter'] = add_to_filter(url['filter'], "EndDate " + sign + "%20(datetimeoffset'" + date.toISOString().split('.')[0] + "Z')");
+			url['filter'] = add_to_filter(url['filter'], "CreationDateTime " + sign + "%20(datetimeoffset'" + date.toISOString().split('.')[0] + "Z')");
 		},
 		money: function(obj) {
 			url['filter'] = add_to_filter(url['filter'], "ExpectedRevenueAmount " + sign + "%20" + obj.amount);

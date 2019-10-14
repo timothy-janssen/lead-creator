@@ -100,7 +100,7 @@ map_to_response = function (data){
   		var exp_close =  new Date(date_int);
   		response.elements.push({
         	"title": lead.Name,
-        	"subtitle":  value + ' ' + exp_close.toLocaleDateString("en-US", date_options),
+        	"subtitle":  value + ' - ' + exp_close.toLocaleDateString("en-US", date_options),
     		"buttons": []
         });
   	});
