@@ -45,7 +45,7 @@ app.post('/create-lead', function (req, res) {
 	});
 });
 
-app.get('/get-lead', function (req, res) {
+app.post('/get-lead', function (req, res) {
 	console.log('[GET] get-lead');
 
 	//conversation memory
