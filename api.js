@@ -24,7 +24,10 @@ exports.call_api_post = function(token, cookie, lead){
 						    "Quantity":"2",
 						    "unitCode": "EA"
 						}
-					]};
+					]
+	};
+	
+	console.log("Payload: " + payload)
 
 	var post_options = {
 	    uri:    config.BASE_URL + "/sap/c4c/odata/v1/c4codataapi/LeadCollection",
