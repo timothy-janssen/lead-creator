@@ -73,6 +73,8 @@ app.post('/get-lead', function (req, res) {
    					  	type: 'list',
    					  	content: api_data,
     					buttons: []
+   					  },{
+   					  	random: "random"
    					  }
    					],
     			});
