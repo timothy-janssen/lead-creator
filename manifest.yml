@@ -1,0 +1,6 @@
+---
+applications:
+- name: cai_tools 
+  path: .
+  buildpack: nodejs_buildpack
+  memory: 128M

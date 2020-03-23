@@ -58,6 +58,8 @@ app.post('/get-lead', function (req, res) {
 
 	var sel_opts = decoder.getSelOpts(entities);
 
+	console.log(req.body.conversation.skill);
+
 	csrf.getToken(potential_cookie, potential_token)
 	.then( function(token_data){
 		console.log('Received token: ' + token_data.token);
