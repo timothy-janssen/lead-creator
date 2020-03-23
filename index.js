@@ -58,7 +58,7 @@ app.post('/get-lead', function (req, res) {
 
 	var sel_opts = decoder.getSelOpts(entities);
 
-	console.log(req.body.conversation.skill);
+	console.log(req.body.conversation);
 
 	csrf.getToken(potential_cookie, potential_token)
 	.then( function(token_data){
