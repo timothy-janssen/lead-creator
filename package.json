@@ -11,8 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "recastai": "^4.0.0",
     "request-promise": "^4.2.2",
     "request": "^2.0.0"
